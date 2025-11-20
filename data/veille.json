@@ -1,0 +1,12 @@
+{
+  "definition": {
+    "title": "Définition et thèmes de ma veille",
+    "description": "La veille technologique consiste à surveiller les évolutions et innovations dans un domaine spécifique pour rester informé des dernières tendances.",
+    "themes": "Développement web (Vue.js, React) et développement Logicielles (C#/.NET, C++, Java)"
+  },
+  "flipboard": {
+    "title": "C'est quoi Flipboard ?",
+    "description": "Flipboard est un site web qui permet d'organiser et de partager des articles, actualités et informations sous forme de magazines numériques personnalisés. C'est un outil idéal pour structurer et diffuser sa veille technologique de manière visuelle et accessible.",
+    "url": "https://flipboard.com/@sylvainhontans/veille-technologique-sis54gi1z?from=share&utm_source=flipboard&utm_medium=curator_share"
+  }
+}

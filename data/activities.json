@@ -1,0 +1,63 @@
+{
+  "categories": [
+    {
+      "name": "Réalisation en cours de formation",
+      "activities": [
+        {
+          "name": "Développement de la \"Maison des ligues\"",
+          "competences": [false, false, true, true, true, false],
+          "links": [
+            { "type": "site", "url": "https://fastaze.github.io/maison-de-ligue/" },
+            { "type": "github", "url": "https://github.com/FastAze/maison-de-ligue" },
+            { "type": "demo", "url": "https://pages.github.com/" }
+          ]
+        },
+        {
+          "name": "Développement de \"AppFaq\"",
+          "competences": [true, false, true, true, true, false],
+          "links": [
+            { "type": "image", "url": "/preuves/image4.png" },
+            { "type": "site", "url": "https://appfaq.page.gd/" },
+            { "type": "trello", "url": "https://trello.com/b/hwoYnDfh" },
+            { "type": "image", "url": "/preuves/image6.png" }
+          ]
+        },
+        {
+          "name": "GLPI",
+          "competences": [true, false, false, false, false, false],
+          "links": [
+            { "type": "pdf", "url": "/preuves/Hontans_sylvain_AP Gestion Parc 2024-2025.pdf" }
+          ]
+        },
+        {
+          "name": "LinkedIn",
+          "competences": [false, false, false, false, false, true],
+          "links": [
+            { "type": "linkedin", "url": "https://www.linkedin.com/in/sylvain-hontans-0aa645345/" }
+          ]
+        },
+        {
+          "name": "Portfolio",
+          "competences": [false, false, false, false, true, true],
+          "links": [
+            { "type": "demo", "url": "https://pages.github.com/" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Réalisations en milieu professionnel",
+      "activities": [
+        {
+          "name": "Développement de \"Eco\"",
+          "competences": [true, true, false, true, false, false],
+          "links": [
+            { "type": "image", "url": "/preuves/image.png" },
+            { "type": "github", "url": "https://github.com/Hontans/eco/commits/master/" },
+            { "type": "github", "url": "https://github.com/Hontans/eco" }
+          ]
+        }
+      ]
+    }
+  ]
+}
