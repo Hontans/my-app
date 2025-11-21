@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de Sylvain Hontans - Étudiant en BTS SIO SLAM, développeur web et Logicielles. Découvrez mes projets et mon parcours professionnel.">
+    <link rel="icon" type="image/png" href="icone.png">
+    <link rel="stylesheet" href="style.css">
+    <title>Sylvain Hontans</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div href="#home" class="logo-text">Sylvain <span class="gradient-text">HONTANS</span></div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link active">Parcours Professionnel</a>
+                <a href="#projets" class="nav-link">Projets</a>
+                <a href="#activites" class="nav-link">Référentiel des compétences</a>
+                <a href="#veille" class="nav-link">Veille technologique</a>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="drawer-overlay"></div>
+    <div class="drawer">
+        <div class="drawer-header">
+            <h2>Menu</h2>
+            <button class="drawer-close" aria-label="Fermer le menu">
+                <i class='bx bx-x'></i>
+            </button>
+        </div>
+        <div class="drawer-menu">
+            <a href="#home" class="drawer-link active">Parcours Professionnel</a>
+            <a href="#projets" class="drawer-link">Projets</a>
+            <a href="#activites" class="drawer-link">Référentiel des compétences</a>
+            <a href="#veille" class="drawer-link">Veille technologique</a>
+        </div>
+    </div>
+    
+    <section id="home" class="home section active">
+        <div class="home-content">
+            <h1>Salut, je suis Sylvain Hontans</h1>
+            <h2 class="typing-animation">Parcours Professionnel</h2>
+            <p>Je m'appelle HONTANS Sylvain, j'ai 18 ans et je suis titulaire d'un Bac PRO Systèmes Numériques option RISC (Réseaux Informatiques et Systèmes Communicants). Actuellement, je poursuis mes études en seconde année de BTS Services Informatiques aux Organisations (SIO) avec la spécialité SLAM (Solutions Logicielles et Applications Métiers).</p>
+                <div class="btn-box">
+                    <a href="#" id="contact-btn">Me contacter</a>
+                    <a href="CV_SH.pdf" target="_blank">CV</a>
+                </div>
+        </div>
+        <div class="home-sci">
+            <a href="https://github.com/Hontans" target="_blank" aria-label="Visiter mon profil GitHub"><i class='bx bxl-github'></i></a>
+            <a href="https://flipboard.com/@sylvainhontans/veille-technologique-sis54gi1y" target="_blank" aria-label="Consulter ma veille technologique sur Flipboard"><i class="fab fa-flipboard"></i></a>
+            <a href="https://www.linkedin.com/in/sylvain-hontans-0aa645345/" target="_blank" aria-label="Visiter mon profil LinkedIn"><i class='bx bxl-linkedin'></i></a>
+        </div>
+        <span class="home-imgHover"></span>
+    </section>
+
+    <div id="contact-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" aria-label="Fermer la fenêtre de contact">&times;</span>
+            <h2>Me contacter</h2>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="user-email">Votre email :</label>
+                    <input type="email" id="user-email" name="user-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message :</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+    </div>
+
+    <section id="projets" class="section" style="display: none;">
+        <div class="section-content">
+            <h2 class="typing-animation">Mes Projets</h2>
+
+            <div class="veille-item">
+                <h3>Maison des ligues</h3>
+                <p>Site web développé pour la Maison des Ligues. Présentation détaillée des différentes ligues sportives.</p>
+                <p><strong>Technologies :</strong> HTML, CSS, GitHub Pages</p>
+                <div class="diffusion-links">
+                    <a href="https://github.com/FastAze/maison-de-ligue" target="_blank" class="flipboard-link">Voir le GitHub</a>
+                    <a href="https://fastaze.github.io/maison-de-ligue" target="_blank" class="flipboard-link">Voir le site</a>
+                </div>
+            </div>
+
+            <div class="veille-item">
+                <h3>AppFaq</h3>
+                <p>Application web développée pour la Maison des Ligues. Système de gestion et d'organisation pour les ligues sportives avec interface d'administration.</p>
+                <p><strong>Technologies :</strong> HTML, CSS, PHP, Infinityfree</p>
+                <div class="diffusion-links">
+                    <a href="https://github.com/FastAze/M2L" target="_blank" class="flipboard-link">Voir le GitHub</a>
+                    <a href="https://appfaq.page.gd/" target="_blank" class="flipboard-link">Voir le site</a>
+                </div>
+            </div>
+
+            <div class="veille-item">
+                <h3>Eco</h3>
+                <p>Site web e-commerce développé dans le cadre d'un stage à Maser Engineering. Boutique en ligne complète avec gestion des produits, panier d'achat, gestion des informations utilisateur, adresses et moyens de paiement.</p>
+                <p><strong>Technologies :</strong> Vue.js, Quasar, Node.js</p>
+                <div class="diffusion-links">
+                    <a href="https://github.com/Hontans/eco" target="_blank" class="flipboard-link">Voir le GitHub</a>
+                    <a href="SylvainHontansRapportStage.pdf" target="_blank" class="flipboard-link">Rapport de stage</a>
+                </div>
+            </div>
+
+            <div class="veille-item">
+                <h3>Portfolio Personnel</h3>
+                <p>Mon portfolio personnel hébergé sur GitHub Pages. Site web responsive présentant mon parcours, mes compétences et mes projets avec ma veille technologique.</p>
+                <p><strong>Technologies :</strong> HTML, CSS, JavaScript, GitHub Pages</p>
+                <div class="diffusion-links">
+                    <a href="https://github.com/Hontans/Hontans.github.io" target="_blank" class="flipboard-link">Voir le GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="activites" class="section" style="display: none;">
+        <div class="section-content">
+            <h2 class="typing-animation">Référentiel des compétences du Bloc n° 1</h2>
+            <div class="competences-grid">
+                <div class="competence-card" data-competence="1">
+                    <div class="card-content">
+                        <h3>Compétence 1</h3>
+                        <div class="card-overlay">
+                            <h4>Gérer le patrimoine informatique</h4>
+                            <ul>
+                                <li>Recenser et identifier les ressources numériques</li>
+                                <li>Exploiter des référentiels, normes et standards adoptés par le prestataire informatique</li>
+                                <li>Mettre en place et vérifier les niveaux d'habilitation associés à un service</li>
+                                <li>Vérifier les conditions de la continuité d'un service informatique</li>
+                                <li>Gérer des sauvegardes</li>
+                                <li>Vérifier le respect des règles d'utilisation des ressources numériques</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="competence-card" data-competence="2">
+                    <div class="card-content">
+                        <h3>Compétence 2</h3>
+                        <div class="card-overlay">
+                            <h4>Répondre aux incidents et aux demandes d'assistance et d'évolution</h4>
+                            <ul>
+                                <li>Collecter, suivre et orienter des demandes</li>
+                                <li>Traiter des demandes concernant les services réseau et système, applicatifs</li>
+                                <li>Traiter des demandes concernant les applications</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="competence-card" data-competence="3">
+                    <div class="card-content">
+                        <h3>Compétence 3</h3>
+                        <div class="card-overlay">
+                            <h4>Développer la présence en ligne de l'organisation</h4>
+                            <ul>
+                                <li>Participer à la valorisation de l'image de l'organisation sur les médias numériques en tenant compte du cadre juridique et des enjeux économiques</li>
+                                <li>Référencer les services en ligne de l'organisation et mesurer leur visibilité</li>
+                                <li>Participer à l'évolution d'un site Web exploitant les données de l'organisation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="competence-card" data-competence="4">
+                    <div class="card-content">
+                        <h3>Compétence 4</h3>
+                        <div class="card-overlay">
+                            <h4>Travailler en mode projet</h4>
+                            <ul>
+                                <li>Analyser les objectifs et les modalités d'organisation d'un projet</li>
+                                <li>Planifier les activités</li>
+                                <li>Évaluer les indicateurs de suivi d'un projet et analyser les écarts</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="competence-card" data-competence="5">
+                    <div class="card-content">
+                        <h3>Compétence 5</h3>
+                        <div class="card-overlay">
+                            <h4>Mettre à disposition des utilisateurs un service informatique</h4>
+                            <ul>
+                                <li>Réaliser les tests d'intégration et d'acceptation d'un service</li>
+                                <li>Déployer un service</li>
+                                <li>Accompagner les utilisateurs dans la mise en place d'un service</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="competence-card" data-competence="6">
+                    <div class="card-content">
+                        <h3>Compétence 6</h3>
+                        <div class="card-overlay">
+                            <h4>Organiser son développement professionnel</h4>
+                            <ul>
+                                <li>Mettre en place son environnement d'apprentissage personnel</li>
+                                <li>Mettre en œuvre des outils et stratégies de veille informationnelle</li>
+                                <li>Gérer son identité professionnelle</li>
+                                <li>Développer son projet professionnel</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="competences-tableau">
+                <h3>Mes Compétences BTS SIO SLAM</h3>
+                <div class="tableau-container">
+                    <table class="competences-table">
+                        <thead>
+                            <tr>
+                                <th>Activités</th>
+                                <th>Gérer le patrimoine informatique</th>
+                                <th>Répondre aux incidents et aux demandes d'assistance et d'évolution</th>
+                                <th>Développer la présence en ligne de l'organisation</th>
+                                <th>Travailler en mode projet</th>
+                                <th>Mettre à disposition des utilisateurs un service informatique</th>
+                                <th>Organiser son développement professionnel</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th colspan="7">Réalisation en cours de formation</th>
+                            </tr>
+                            <tr>
+                                <td class="activity-cell">Développement de la "Maison des ligues" site web pour présenter les différentes ligues sportives.</td>
+                                <td></td>
+                                <td></td>
+                                <td class="competence-check clickable" onclick="window.open('https://fastaze.github.io/maison-de-ligue/', '_blank')">✓</td>
+                                <td class="competence-check clickable" onclick="window.open('https://github.com/FastAze/maison-de-ligue', '_blank')">✓</td>
+                                <td class="competence-check clickable" onclick="window.open('https://pages.github.com/', '_blank')">✓</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="activity-cell">Développement de "AppFaq" site web de foires aux questions sur la maison des ligues.</td>
+                                <td class="competence-check clickable" onclick="openImagePopup('/preuves/image4.png')">✓</td>
+                                <td></td>
+                                <td class="competence-check clickable" onclick="window.open('https://appfaq.page.gd/', '_blank')">✓</td>
+                                <td class="competence-check clickable" onclick="window.open('https://trello.com/b/hwoYnDfh', '_blank')">✓</td>
+                                <td class="competence-check clickable" onclick="openImagePopup('/preuves/image6.png')">✓</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="activity-cell">GLPI</td>
+                                <td class="competence-check clickable" onclick="window.open('/preuves/Hontans_sylvain_AP Gestion Parc 2024-2025.pdf', '_blank')">✓</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="activity-cell">LinkedIn</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td class="competence-check clickable" onclick="window.open('https://www.linkedin.com/in/sylvain-hontans-0aa645345/', '_blank')">✓</td>
+                            </tr>
+                            <tr>
+                                <td class="activity-cell">Portfolio</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td class="competence-check clickable" onclick="window.open('https://pages.github.com/', '_blank')">✓</td>
+                                <td class="competence-check">✓</td>
+                            </tr>
+                            <tr class="sub-header">
+                                <th colspan="7" class="sub-header-cell">Réalisations en milieu professionnel en cours de première année</th>
+                            </tr>
+                            <tr>
+                                <td class="activity-cell">Développement de "Eco" site web boutique e-commerce dans le cadre d'un stage à Maser Ingénierie</td>
+                                <td class="competence-check clickable" onclick="openImagePopup('/preuves/image.png')">✓</td>
+                                <td class="competence-check clickable" onclick="window.open('https://github.com/Hontans/eco/commits/master/', '_blank')">✓</td>
+                                <td></td>
+                                <td class="competence-check clickable" onclick="window.open('https://github.com/Hontans/eco', '_blank')">✓</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal d'image déplacée ici pour être accessible depuis toute la page -->
+    <div id="image-modal" class="modal" style="display: none;">
+        <div class="modal-content image-modal-content">
+            <span class="close image-close" aria-label="Fermer l'image">&times;</span>
+            <img id="modal-image" src="" alt="Preuve de compétence">
+        </div>
+    </div>
+
+    <section id="veille" class="section" style="display: none;">
+        <div class="section-content">
+            <h2 class="typing-animation">Veille Technologique</h2>
+            <div class="veille-item">
+                <h3>Définition et thèmes de ma veille</h3>
+                <p>La veille technologique consiste à surveiller les évolutions et innovations dans un domaine spécifique pour rester informé des dernières tendances.</p>
+                <p><strong>Mes thèmes :</strong> Développement web (Vue.js, React) et développement Logicielles (C#/.NET, C++, Java)</p>
+            </div>
+            
+            <div class="veille-item">
+                <h3>C'est quoi Flipboard ?</h3>
+                <p>Flipboard est un site web qui permet d'organiser et de partager des articles, actualités et informations sous forme de magazines numériques personnalisés. C'est un outil idéal pour structurer et diffuser sa veille technologique de manière visuelle et accessible.</p>
+            </div>
+
+            <div class="diffusion-links">
+                <a href="https://flipboard.com/@sylvainhontans/veille-technologique-sis54gi1z?from=share&utm_source=flipboard&utm_medium=curator_share" target="_blank" class="flipboard-link">Consulter ma veille sur Flipboard</a>
+            </div>
+        </div>
+    </section>
+
+    <div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0;">
+        <script>
+            // Initialisation des particules avec animation d'apparition
+            particlesJS("particles-js", {
+                "particles": {
+                    "number": {"value": 80, "density": {"enable": true, "value_area": 800}},
+                    "color": {"value": "#928DAB"},
+                    "shape": {"type": "circle"},
+                    "opacity": {"value": 0.5, "random": false, "anim": {"enable": false}},
+                    "size": {"value": 3, "random": true},
+                    "line_linked": {"enable": true, "distance": 150, "color": "#928DAB", "opacity": 0.4, "width": 1},
+                    "move": {"enable": true, "speed": 6, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false, "attract": {"enable": false, "rotateX": 600, "rotateY": 1200}}
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {"onhover": {"enable": true, "mode": "grab"}, "onclick": {"enable": true, "mode": "push"}, "resize": true},
+                    "modes": {"grab": {"distance": 140, "line_linked": {"opacity": 1}}, "bubble": {"distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3}, "repulse": {"distance": 200, "duration": 0.4}, "push": {"particles_nb": 4}, "remove": {"particles_nb": 2}}
+                },
+                "retina_detect": true
+            });
+            
+            // Animation d'apparition des particules
+            setTimeout(() => {
+                const particlesContainer = document.getElementById('particles-js');
+                particlesContainer.style.transition = 'opacity 2s ease-in-out';
+                particlesContainer.style.opacity = '1';
+            }, 800);
+        </script>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sélection des éléments du DOM
+            const navLinks = document.querySelectorAll('.nav-link');
+            const drawerLinks = document.querySelectorAll('.drawer-link');
+            const sections = document.querySelectorAll('.section');
+            const hamburger = document.querySelector('.hamburger');
+            const drawer = document.querySelector('.drawer');
+            const drawerOverlay = document.querySelector('.drawer-overlay');
+            const drawerClose = document.querySelector('.drawer-close');
+
+            // Gestion de la modal d'image
+            const imageModal = document.getElementById('image-modal');
+            const modalImage = document.getElementById('modal-image');
+            const imageClose = document.querySelector('.image-close');
+
+            // Fonction pour ouvrir le popup d'image
+            window.openImagePopup = function(imageSrc) {
+                modalImage.src = imageSrc;
+                imageModal.style.display = 'block';
+            };
+
+            // Fermer la modal d'image avec le bouton X
+            imageClose.addEventListener('click', function() {
+                imageModal.style.display = 'none';
+            });
+
+            // Fermer la modal d'image en cliquant sur l'overlay
+            imageModal.addEventListener('click', function(e) {
+                if (e.target === imageModal) {
+                    imageModal.style.display = 'none';
+                }
+            });
+
+            // Fonction pour changer de section active
+            function changeSection(targetId, clickedElement) {
+                // Supprimer la classe active de tous les liens de navigation
+                navLinks.forEach(nav => nav.classList.remove('active'));
+                drawerLinks.forEach(link => link.classList.remove('active'));
+                
+                // Ajouter la classe active au lien cliqué
+                clickedElement.classList.add('active');
+                
+                // Masquer toutes les sections
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                    section.classList.remove('active');
+                });
+                
+                // Afficher la section ciblée
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.style.display = 'flex';
+                    
+                    // Déclencher les animations avec un petit délai
+                    setTimeout(() => {
+                        targetSection.classList.add('active');
+                        targetSection.style.opacity = '1';
+                    }, 50);
+                }
+            }
+
+            // Gestion de la navigation pour la barre de navigation desktop
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    changeSection(targetId, this);
+                });
+            });
+
+            // Gestion de la navigation pour le menu mobile (drawer)
+            drawerLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    changeSection(targetId, this);
+                    closeDrawer(); // Fermer le drawer après la navigation
+                });
+            });
+
+            // Fonction pour ouvrir le menu mobile
+            function openDrawer() {
+                drawer.classList.add('open');
+                drawerOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Empêcher le défilement de la page
+            }
+
+            // Fonction pour fermer le menu mobile
+            function closeDrawer() {
+                drawer.classList.remove('open');
+                drawerOverlay.classList.remove('active');
+                document.body.style.overflow = ''; // Restaurer le défilement
+            }
+
+            // Événements pour gérer l'ouverture et fermeture du drawer
+            hamburger.addEventListener('click', openDrawer);
+            drawerClose.addEventListener('click', closeDrawer);
+            drawerOverlay.addEventListener('click', closeDrawer);
+
+            // Gestion de la modal de contact
+            const modal = document.getElementById('contact-modal');
+            const contactBtn = document.getElementById('contact-btn');
+            const closeBtn = document.querySelector('.close');
+            const contactForm = document.getElementById('contact-form');
+
+            // Ouvrir la modal de contact
+            contactBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                modal.style.display = 'block';
+            });
+
+            // Fermer la modal avec le bouton X
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+
+            // Fermer la modal en cliquant sur l'overlay
+            window.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+            });
+    </script>
+</body>
+</html>
