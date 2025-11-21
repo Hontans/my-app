@@ -1,94 +1,133 @@
-# Cahier des charges - Refonte du Portfolio avec React et React-Bits
+# Cahier des Charges - Portfolio Sylvain Hontans (React + Next.js)
 
-## 📋 Contexte du projet
-
-Refonte du portfolio personnel existant (Hontans.github.io) en utilisant Next.js, React et les composants React-Bits, en conservant la structure fonctionnelle mais pas le design.
-
----
-
-## 🎯 Objectifs
-
-- Recréer la structure et les fonctionnalités du site existant
-- Utiliser des composants React-Bits pour les animations et effets
-- Moderniser l'architecture avec Next.js et TypeScript
-- Améliorer les performances et la maintenabilité
+## 📋 Vue d'ensemble du projet
+Refonte complète du portfolio personnel en utilisant React, Next.js 15, TypeScript et shadcn/ui. Le projet actuel est en HTML/CSS/JavaScript vanilla et doit être migré vers une architecture moderne basée sur des composants.
 
 ---
 
-## 📐 Structure du site
+## 🎨 Structure de l'application
 
-### 1. **Header / Navigation**
-- Logo/Nom : "Sylvain HONTANS"
-- Menu de navigation avec 4 sections :
+### Header / Navigation
+**Composant**: `Navbar`
+
+**Contenu textuel**:
+- Logo: "Sylvain **HONTANS**" (avec "HONTANS" en gradient)
+- Liens de navigation:
   - Parcours Professionnel
   - Projets
   - Référentiel des compétences
   - Veille technologique
-- Menu hamburger responsive pour mobile
-- Navigation active avec indication visuelle de la section courante
 
-### 2. **Section : Parcours Professionnel** (Page d'accueil)
+**Fonctionnalités**:
+- Navigation responsive avec menu hamburger pour mobile
+- Menu drawer pour mobile avec overlay
+- Navigation entre sections avec classe active
+- Smooth scroll ou navigation par sections
 
-**Contenu :**
-- Titre principal : "Salut, je suis Sylvain Hontans"
-- Sous-titre animé : "Parcours Professionnel"
-- Texte de présentation :
-  > "Je m'appelle HONTANS Sylvain, j'ai 18 ans et je suis titulaire d'un Bac PRO Systèmes Numériques option RISC (Réseaux Informatiques et Systèmes Communicants). Actuellement, je poursuis mes études en seconde année de BTS Services Informatiques aux Organisations (SIO) avec la spécialité SLAM (Solutions Logicielles et Applications Métiers)."
-- Deux boutons d'action :
-  - "Me contacter" (ouvre une modal de contact)
-  - "CV" (téléchargement PDF)
-- Liens vers réseaux sociaux (footer fixe) :
-  - GitHub
-  - Flipboard
-  - LinkedIn
+---
 
-**Fonctionnalités :**
-- Animation de texte typing/dactylographie pour le sous-titre
-- Modal de contact avec formulaire (email + message)
-- Effet de particules en arrière-plan
+### Section Home (Parcours Professionnel)
+**Composant**: `HeroSection`
 
-### 3. **Section : Projets**
+**Contenu textuel**:
+```
+Titre principal: "Salut, je suis Sylvain Hontans"
+Sous-titre animé: "Parcours Professionnel"
 
-**Liste des projets à afficher :**
+Texte de présentation:
+"Je m'appelle HONTANS Sylvain, j'ai 18 ans et je suis titulaire d'un Bac PRO Systèmes Numériques option RISC (Réseaux Informatiques et Systèmes Communicants). Actuellement, je poursuis mes études en seconde année de BTS Services Informatiques aux Organisations (SIO) avec la spécialité SLAM (Solutions Logicielles et Applications Métiers)."
+```
 
-#### Projet 1 : Maison des ligues
-- **Description :** Site web développé pour la Maison des Ligues. Présentation détaillée des différentes ligues sportives.
-- **Technologies :** HTML, CSS, GitHub Pages
-- **Liens :**
-  - GitHub : https://github.com/FastAze/maison-de-ligue
-  - Site : https://fastaze.github.io/maison-de-ligue
+**Éléments interactifs**:
+- Bouton "Me contacter" (ouvre une modal)
+- Bouton "CV" (lien vers CV_SH.pdf)
+- Liens sociaux:
+  - GitHub: https://github.com/Hontans
+  - Flipboard: https://flipboard.com/@sylvainhontans/veille-technologique-sis54gi1y
+  - LinkedIn: https://www.linkedin.com/in/sylvain-hontans-0aa645345/
 
-#### Projet 2 : AppFaq
-- **Description :** Application web développée pour la Maison des Ligues. Système de gestion et d'organisation pour les ligues sportives avec interface d'administration.
-- **Technologies :** HTML, CSS, PHP, Infinityfree
-- **Liens :**
-  - GitHub : https://github.com/FastAze/M2L
-  - Site : https://appfaq.page.gd/
+**Effets**:
+- Animation de typing sur le sous-titre
+- Particules en arrière-plan (particles.js)
+- Home-imgHover effect
 
-#### Projet 3 : Eco
-- **Description :** Site web e-commerce développé dans le cadre d'un stage à Maser Engineering. Boutique en ligne complète avec gestion des produits, panier d'achat, gestion des informations utilisateur, adresses et moyens de paiement.
-- **Technologies :** Vue.js, Quasar, Node.js
-- **Liens :**
-  - GitHub : https://github.com/Hontans/eco
-  - Rapport de stage : SylvainHontansRapportStage.pdf
+---
 
-#### Projet 4 : Portfolio Personnel
-- **Description :** Mon portfolio personnel hébergé sur GitHub Pages. Site web responsive présentant mon parcours, mes compétences et mes projets avec ma veille technologique.
-- **Technologies :** HTML, CSS, JavaScript, GitHub Pages
-- **Liens :**
-  - GitHub : https://github.com/Hontans/Hontans.github.io
+### Modal de Contact
+**Composant**: `ContactModal`
 
-**Structure :**
-- Cards/cartes pour chaque projet
-- Chaque carte contient : titre, description, technologies, liens externes
+**Contenu textuel**:
+```
+Titre: "Me contacter"
 
-### 4. **Section : Référentiel des compétences**
+Formulaire:
+- Label: "Votre email :"
+- Input type email requis
+- Label: "Message :"
+- Textarea (5 lignes) requis
+- Bouton: "Envoyer"
+```
 
-**Titre :** Référentiel des compétences du Bloc n° 1
+**Fonctionnalités**:
+- Intégration EmailJS pour l'envoi
+- Validation des champs
+- Fermeture par bouton X ou clic sur overlay
 
-#### Sous-section A : Grille de compétences (6 cartes interactives)
+---
 
-**Compétence 1 : Gérer le patrimoine informatique**
+### Section Projets
+**Composant**: `ProjectsSection`
+
+**Contenu textuel**:
+```
+Titre: "Mes Projets"
+
+Projet 1: Maison des ligues
+Description: "Site web développé pour la Maison des Ligues. Présentation détaillée des différentes ligues sportives."
+Technologies: HTML, CSS, GitHub Pages
+Liens:
+- GitHub: https://github.com/FastAze/maison-de-ligue
+- Site: https://fastaze.github.io/maison-de-ligue
+
+Projet 2: AppFaq
+Description: "Application web développée pour la Maison des Ligues. Système de gestion et d'organisation pour les ligues sportives avec interface d'administration."
+Technologies: HTML, CSS, PHP, Infinityfree
+Liens:
+- GitHub: https://github.com/FastAze/M2L
+- Site: https://appfaq.page.gd/
+
+Projet 3: Eco
+Description: "Site web e-commerce développé dans le cadre d'un stage à Maser Engineering. Boutique en ligne complète avec gestion des produits, panier d'achat, gestion des informations utilisateur, adresses et moyens de paiement."
+Technologies: Vue.js, Quasar, Node.js
+Liens:
+- GitHub: https://github.com/Hontans/eco
+- Rapport de stage: SylvainHontansRapportStage.pdf
+
+Projet 4: Portfolio Personnel
+Description: "Mon portfolio personnel hébergé sur GitHub Pages. Site web responsive présentant mon parcours, mes compétences et mes projets avec ma veille technologique."
+Technologies: HTML, CSS, JavaScript, GitHub Pages
+Liens:
+- GitHub: https://github.com/Hontans/Hontans.github.io
+```
+
+**Composant enfant**: `ProjectCard`
+- Titre du projet
+- Description
+- Technologies utilisées
+- Liens vers GitHub/Site
+
+---
+
+### Section Référentiel des Compétences
+**Composant**: `CompetencesSection`
+
+**Contenu textuel**:
+```
+Titre: "Référentiel des compétences du Bloc n° 1"
+
+Compétences (6 cartes):
+
+Compétence 1: Gérer le patrimoine informatique
 - Recenser et identifier les ressources numériques
 - Exploiter des référentiels, normes et standards adoptés par le prestataire informatique
 - Mettre en place et vérifier les niveaux d'habilitation associés à un service
@@ -96,181 +135,331 @@ Refonte du portfolio personnel existant (Hontans.github.io) en utilisant Next.js
 - Gérer des sauvegardes
 - Vérifier le respect des règles d'utilisation des ressources numériques
 
-**Compétence 2 : Répondre aux incidents et aux demandes d'assistance et d'évolution**
+Compétence 2: Répondre aux incidents et aux demandes d'assistance et d'évolution
 - Collecter, suivre et orienter des demandes
 - Traiter des demandes concernant les services réseau et système, applicatifs
 - Traiter des demandes concernant les applications
 
-**Compétence 3 : Développer la présence en ligne de l'organisation**
+Compétence 3: Développer la présence en ligne de l'organisation
 - Participer à la valorisation de l'image de l'organisation sur les médias numériques en tenant compte du cadre juridique et des enjeux économiques
 - Référencer les services en ligne de l'organisation et mesurer leur visibilité
 - Participer à l'évolution d'un site Web exploitant les données de l'organisation
 
-**Compétence 4 : Travailler en mode projet**
+Compétence 4: Travailler en mode projet
 - Analyser les objectifs et les modalités d'organisation d'un projet
 - Planifier les activités
 - Évaluer les indicateurs de suivi d'un projet et analyser les écarts
 
-**Compétence 5 : Mettre à disposition des utilisateurs un service informatique**
+Compétence 5: Mettre à disposition des utilisateurs un service informatique
 - Réaliser les tests d'intégration et d'acceptation d'un service
 - Déployer un service
 - Accompagner les utilisateurs dans la mise en place d'un service
 
-**Compétence 6 : Organiser son développement professionnel**
+Compétence 6: Organiser son développement professionnel
 - Mettre en place son environnement d'apprentissage personnel
 - Mettre en œuvre des outils et stratégies de veille informationnelle
 - Gérer son identité professionnelle
 - Développer son projet professionnel
+```
 
-**Interaction :**
-- Cartes cliquables/hover qui révèlent les détails au survol
-- Animation de retournement ou overlay au passage de la souris
-
-#### Sous-section B : Tableau des compétences
-
-**Structure du tableau :**
-- Colonnes : 
-  - Activités
-  - Les 6 compétences (1 colonne par compétence)
-- Lignes groupées :
-  - **Réalisation en cours de formation**
-  - **Réalisations en milieu professionnel en cours de première année**
-
-**Données du tableau :**
-
-| Activités | C1 | C2 | C3 | C4 | C5 | C6 |
-|-----------|----|----|----|----|----|----|
-| **Réalisation en cours de formation** |
-| Développement de la "Maison des ligues" | | | ✓ | ✓ | ✓ | |
-| Développement de "AppFaq" | ✓ | | ✓ | ✓ | ✓ | |
-| GLPI | ✓ | | | | | |
-| LinkedIn | | | | | | ✓ |
-| Portfolio | | | | | ✓ | ✓ |
-| **Réalisations en milieu professionnel** |
-| Développement de "Eco" | ✓ | ✓ | | ✓ | | |
-
-**Fonctionnalités :**
-- Cases cliquables pour ouvrir des preuves (images ou liens)
-- Tableau responsive avec scroll horizontal sur mobile
-
-### 5. **Section : Veille technologique**
-
-**Contenu :**
-
-**Bloc 1 : Définition et thèmes**
-- **Titre :** Définition et thèmes de ma veille
-- **Texte :** La veille technologique consiste à surveiller les évolutions et innovations dans un domaine spécifique pour rester informé des dernières tendances.
-- **Mes thèmes :** Développement web (Vue.js, React) et développement Logicielles (C#/.NET, C++, Java)
-
-**Bloc 2 : Flipboard**
-- **Titre :** C'est quoi Flipboard ?
-- **Texte :** Flipboard est un site web qui permet d'organiser et de partager des articles, actualités et informations sous forme de magazines numériques personnalisés. C'est un outil idéal pour structurer et diffuser sa veille technologique de manière visuelle et accessible.
-
-**Lien externe :**
-- Bouton "Consulter ma veille sur Flipboard"
-- URL : https://flipboard.com/@sylvainhontans/veille-technologique-sis54gi1z
+**Composant enfant**: `CompetenceCard`
+- Numéro de compétence
+- Titre de la compétence
+- Liste des sous-compétences
+- Effet hover avec overlay
 
 ---
 
-## 🎨 Fonctionnalités UX/UI à implémenter
+### Tableau des Compétences
+**Composant**: `CompetencesTable`
 
-### Animations et effets
-- ✅ Animation de typing/dactylographie pour les titres
-- ✅ Effet de particules en arrière-plan (particles.js → équivalent React)
-- ✅ Animations d'apparition au scroll (fade in, slide in)
-- ✅ Cartes avec effet hover/overlay
-- ✅ Transitions fluides entre sections
-- ✅ Menu drawer mobile avec overlay
+**Contenu textuel**:
+```
+Titre: "Mes Compétences BTS SIO SLAM"
 
-### Composants interactifs
-- Modal de contact avec formulaire
-- Modal d'affichage d'images (pour les preuves)
-- Navigation avec indicateur de section active
-- Boutons avec effets hover
-- Liens externes avec animations
+En-têtes de colonnes:
+- Activités
+- Gérer le patrimoine informatique
+- Répondre aux incidents et aux demandes d'assistance et d'évolution
+- Développer la présence en ligne de l'organisation
+- Travailler en mode projet
+- Mettre à disposition des utilisateurs un service informatique
+- Organiser son développement professionnel
 
-### Responsive design
-- Navigation desktop : menu horizontal
-- Navigation mobile : menu hamburger + drawer
-- Layout adaptatif pour tablettes et mobiles
-- Tableau de compétences scrollable horizontalement sur mobile
+Section: "Réalisation en cours de formation"
+
+Activité 1: Développement de la "Maison des ligues" site web pour présenter les différentes ligues sportives.
+Compétences: C3, C4, C5
+Liens: Site, GitHub, GitHub Pages
+
+Activité 2: Développement de "AppFaq" site web de foires aux questions sur la maison des ligues.
+Compétences: C1, C3, C4, C5
+Liens: Image preuve, Site, Trello, Image preuve
+
+Activité 3: GLPI
+Compétences: C1
+Lien: PDF preuve
+
+Activité 4: LinkedIn
+Compétences: C6
+Lien: LinkedIn profile
+
+Activité 5: Portfolio
+Compétences: C5, C6
+Lien: GitHub Pages
+
+Section: "Réalisations en milieu professionnel en cours de première année"
+
+Activité 6: Développement de "Eco" site web boutique e-commerce dans le cadre d'un stage à Maser Ingénierie
+Compétences: C1, C2, C4
+Liens: Image preuve, Commits GitHub, GitHub
+```
+
+**Fonctionnalités**:
+- Tableau responsive
+- Cases cliquables (✓) qui ouvrent des liens ou des modals d'images
+- Modal d'affichage d'images pour les preuves
 
 ---
 
-## 🔧 Technologies et composants à utiliser
+### Section Veille Technologique
+**Composant**: `VeilleSection`
+
+**Contenu textuel**:
+```
+Titre: "Veille Technologique"
+
+Bloc 1: Définition et thèmes de ma veille
+Contenu: "La veille technologique consiste à surveiller les évolutions et innovations dans un domaine spécifique pour rester informé des dernières tendances."
+Mes thèmes: Développement web (Vue.js, React) et développement Logicielles (C#/.NET, C++, Java)
+
+Bloc 2: C'est quoi Flipboard ?
+Contenu: "Flipboard est un site web qui permet d'organiser et de partager des articles, actualités et informations sous forme de magazines numériques personnalisés. C'est un outil idéal pour structurer et diffuser sa veille technologique de manière visuelle et accessible."
+
+Lien: Consulter ma veille sur Flipboard
+URL: https://flipboard.com/@sylvainhontans/veille-technologique-sis54gi1z?from=share&utm_source=flipboard&utm_medium=curator_share
+```
+
+---
+
+## 🎯 Composants React à créer
+
+### Composants de base (shadcn/ui)
+- `Button` - Pour tous les boutons CTA
+- `Card` - Pour les cartes de projets et compétences
+- `Dialog` (Modal) - Pour la modal de contact et les images
+- `Table` - Pour le tableau des compétences
+- `Sheet` (Drawer) - Pour le menu mobile
+- `Form` - Pour le formulaire de contact
+- `Input` - Pour les champs de formulaire
+- `Textarea` - Pour le message du formulaire
+
+### Composants personnalisés
+
+#### Navigation
+- `Navbar.tsx` - Barre de navigation principale
+- `MobileMenu.tsx` - Menu hamburger et drawer
+
+#### Sections
+- `HeroSection.tsx` - Section d'accueil
+- `ProjectsSection.tsx` - Section projets
+- `CompetencesSection.tsx` - Section compétences
+- `VeilleSection.tsx` - Section veille technologique
+
+#### Sous-composants
+- `ProjectCard.tsx` - Carte individuelle de projet
+- `CompetenceCard.tsx` - Carte de compétence avec overlay
+- `CompetencesTable.tsx` - Tableau des compétences
+- `ContactModal.tsx` - Modal de contact
+- `ImageModal.tsx` - Modal d'affichage d'images
+- `SocialLinks.tsx` - Liens sociaux
+- `ParticlesBackground.tsx` - Arrière-plan animé
+- `TypingAnimation.tsx` - Animation de texte
+
+---
+
+## 🎨 Styles et animations
+
+### Animations requises
+1. **Typing Animation**: Effet machine à écrire sur les titres
+2. **Particles Background**: Particules animées en arrière-plan
+3. **Hover Effects**: Effets au survol des cartes
+4. **Fade In**: Apparition progressive des sections
+5. **Gradient Text**: Texte avec dégradé de couleurs
+6. **Card Overlay**: Overlay qui apparaît au survol des cartes de compétences
+
+### Palette de couleurs (à extraire du style.css)
+- Couleur principale gradient: violet/bleu
+- Couleur des particules: #928DAB
+- Texte: blanc/gris clair sur fond sombre
+
+---
+
+## 📦 Technologies à utiliser
 
 ### Stack technique
-- **Framework :** Next.js (déjà en place)
-- **Langage :** TypeScript
-- **Styling :** Tailwind CSS
-- **Composants UI :** React-Bits (shadcn déjà installé)
+- **Framework**: Next.js 15.5.6 avec Turbopack
+- **Language**: TypeScript 5
+- **UI Library**: shadcn/ui avec Tailwind CSS 4
+- **Animations**: 
+  - Framer Motion (pour les animations complexes)
+  - tw-animate-css (pour animations CSS)
+  - react-particles ou similar (pour l'effet particules)
+- **Formulaire**: EmailJS pour l'envoi d'emails
+- **Icons**: Lucide React (déjà installé)
 
-### Composants React-Bits suggérés
-- `GradualBlur` : pour les transitions entre sections
-- Animations de texte pour le typing effect
-- Composants de card pour les projets et compétences
-- Modal/Dialog pour le formulaire de contact
-- Navigation responsive avec drawer
-- Particle effects ou équivalent
-
----
-
-## 📊 Données dynamiques
-
-### Fichiers de configuration suggérés
-- `/data/profile.json` : informations personnelles
-- `/data/projects.json` : liste des projets
-- `/data/competences.json` : référentiel de compétences
-- `/data/activities.json` : tableau d'activités/compétences
-- `/data/social-links.json` : liens réseaux sociaux
+### Packages déjà installés
+- next: 15.5.6
+- react: 19.1.0
+- tailwindcss: 4
+- lucide-react: 0.554.0
+- class-variance-authority
+- clsx
+- tailwind-merge
+- three (pour effets 3D si nécessaire)
 
 ---
 
-## 🚀 Priorisation des développements
+## 📁 Structure de fichiers proposée
 
-### Phase 1 : Structure de base
-1. Configuration du routing Next.js
-2. Création de la navigation responsive
-3. Layout principal avec sections
+```
+app/
+  ├── layout.tsx (Layout principal)
+  ├── page.tsx (Page d'accueil avec toutes les sections)
+  ├── globals.css (Styles globaux)
+  └── api/
+      └── contact/
+          └── route.ts (API route pour EmailJS)
 
-### Phase 2 : Contenu statique
-1. Section Parcours Professionnel
-2. Section Projets
-3. Section Veille technologique
+components/
+  ├── layout/
+  │   ├── Navbar.tsx
+  │   ├── MobileMenu.tsx
+  │   └── Footer.tsx (si nécessaire)
+  ├── sections/
+  │   ├── HeroSection.tsx
+  │   ├── ProjectsSection.tsx
+  │   ├── CompetencesSection.tsx
+  │   └── VeilleSection.tsx
+  ├── ui/ (shadcn components)
+  │   ├── button.tsx
+  │   ├── card.tsx
+  │   ├── dialog.tsx
+  │   ├── sheet.tsx
+  │   ├── table.tsx
+  │   ├── input.tsx
+  │   ├── textarea.tsx
+  │   └── form.tsx
+  ├── ProjectCard.tsx
+  ├── CompetenceCard.tsx
+  ├── CompetencesTable.tsx
+  ├── ContactModal.tsx
+  ├── ImageModal.tsx
+  ├── SocialLinks.tsx
+  ├── ParticlesBackground.tsx
+  ├── TypingAnimation.tsx
+  └── GradientText.tsx
 
-### Phase 3 : Composants interactifs
-1. Modal de contact
-2. Cartes de compétences avec interactions
-3. Tableau de compétences avec modal d'images
+lib/
+  ├── utils.ts (déjà existant)
+  └── constants.ts (données statiques: projets, compétences, etc.)
 
-### Phase 4 : Animations et effets
-1. Effets de particules
-2. Animations de typing
-3. Animations au scroll
-4. Transitions entre sections
+public/
+  ├── CV_SH.pdf
+  ├── icone.png
+  ├── SylvainHontansRapportStage.pdf
+  └── preuves/
+      ├── image.png
+      ├── image4.png
+      ├── image6.png
+      └── Hontans_sylvain_AP Gestion Parc 2024-2025.pdf
+```
 
-### Phase 5 : Optimisation
-1. Performance et SEO
-2. Responsive design final
-3. Tests cross-browser
+---
+
+## 🚀 Plan de développement
+
+### Phase 1: Setup et structure
+1. ✅ Initialisation Next.js + TypeScript
+2. ✅ Installation shadcn/ui
+3. ⬜ Créer la structure de fichiers
+4. ⬜ Extraire les données dans constants.ts
+
+### Phase 2: Composants de base
+1. ⬜ Créer les composants shadcn nécessaires
+2. ⬜ Développer Navbar et MobileMenu
+3. ⬜ Développer ParticlesBackground
+4. ⬜ Développer TypingAnimation
+
+### Phase 3: Sections principales
+1. ⬜ HeroSection avec présentation
+2. ⬜ ProjectsSection avec ProjectCard
+3. ⬜ CompetencesSection avec CompetenceCard
+4. ⬜ VeilleSection
+
+### Phase 4: Fonctionnalités avancées
+1. ⬜ ContactModal avec EmailJS
+2. ⬜ ImageModal pour les preuves
+3. ⬜ CompetencesTable interactif
+4. ⬜ Navigation smooth entre sections
+
+### Phase 5: Finitions
+1. ⬜ Responsive design
+2. ⬜ Animations et transitions
+3. ⬜ Optimisation des performances
+4. ⬜ SEO (metadata, sitemap)
+5. ⬜ Tests et déploiement
 
 ---
 
 ## 📝 Notes importantes
 
-- **Pas de reproduction du design** : créer un nouveau design moderne avec React-Bits
-- **Conservation de la structure** : toutes les sections et fonctionnalités doivent être présentes
-- **Contenu identique** : conserver tous les textes, liens et informations du site original
-- **Amélioration UX** : profiter de React pour améliorer les interactions
-- **Performance** : optimiser le chargement et les animations
+### Données à externaliser
+Toutes les données textuelles doivent être stockées dans `lib/constants.ts` pour faciliter les mises à jour:
+- Informations personnelles
+- Liste des projets
+- Liste des compétences
+- Activités et preuves
+- Liens sociaux
+
+### Accessibilité
+- Tous les boutons doivent avoir des aria-labels
+- Navigation au clavier
+- Contrast ratios respectés
+- Images avec alt texts
+
+### Performance
+- Images optimisées (Next.js Image component)
+- Lazy loading des sections
+- Code splitting
+- Bundle size optimization
 
 ---
 
-## 🎯 Résultat attendu
+## 🔗 Liens et ressources
 
-Un portfolio moderne et performant en Next.js/React qui :
-- Reprend toute la structure et le contenu du site original
-- Utilise des composants React-Bits pour les animations
-- Offre une meilleure expérience utilisateur
-- Est maintenable et évolutif
-- Conserve toutes les fonctionnalités (navigation, modals, animations, etc.)
+### Liens externes à maintenir
+- GitHub: https://github.com/Hontans
+- LinkedIn: https://www.linkedin.com/in/sylvain-hontans-0aa645345/
+- Flipboard: https://flipboard.com/@sylvainhontans/veille-technologique-sis54gi1y
+- Projets GitHub (voir section projets)
+
+### Fichiers à migrer
+- CV_SH.pdf
+- SylvainHontansRapportStage.pdf
+- Images de preuves (dossier preuves/)
+- icone.png (favicon)
+
+---
+
+## ✅ Critères de validation
+
+Le projet sera considéré comme terminé quand:
+- ✅ Toutes les sections sont fonctionnelles
+- ✅ Navigation fluide entre les sections
+- ✅ Formulaire de contact opérationnel
+- ✅ Responsive sur mobile, tablette et desktop
+- ✅ Animations et effets visuels identiques ou améliorés
+- ✅ Performance optimale (Lighthouse score > 90)
+- ✅ Accessibilité respectée (WCAG 2.1)
+- ✅ Compatible avec les navigateurs modernes
