@@ -71,7 +71,7 @@ export default function Home() {
                 typingSpeed={80}
                 pauseDuration={3000}
                 deletingSpeed={50}
-                loop={false}
+                loop={true}
                 showCursor={true}
                 cursorCharacter="|"
                 cursorClassName="text-black"
