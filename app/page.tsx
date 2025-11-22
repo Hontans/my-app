@@ -81,7 +81,7 @@ export default function Home() {
             {/* Description Text */}
             <div className="text-center max-w-4xl mx-auto">
               <p className="text-lg md:text-xl text-black leading-relaxed backdrop-blur-sm bg-white/10 p-8 rounded-2xl shadow-xl">
-                Je m'appelle HONTANS Sylvain, j'ai 18 ans et je suis titulaire d'un Bac PRO Systèmes Numériques option RISC (Réseaux Informatiques et Systèmes Communicants). 
+                Je m&apos;appelle HONTANS Sylvain, j&apos;ai 18 ans et je suis titulaire d&apos;un Bac PRO Systèmes Numériques option RISC (Réseaux Informatiques et Systèmes Communicants). 
                 Actuellement, je poursuis mes études en seconde année de BTS Services Informatiques aux Organisations (SIO) avec la spécialité SLAM (Solutions Logicielles et Applications Métiers).
               </p>
             </div>
