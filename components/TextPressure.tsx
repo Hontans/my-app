@@ -16,6 +16,7 @@ interface TextPressureProps {
   strokeWidth?: number;
   className?: string;
   minFontSize?: number;
+  maxFontSize?: number;
 }
 
 const TextPressure: React.FC<TextPressureProps> = ({
@@ -33,7 +34,8 @@ const TextPressure: React.FC<TextPressureProps> = ({
   strokeColor = '#FF0000',
   strokeWidth = 2,
   className = '',
-  minFontSize = 24
+  minFontSize = 24,
+  maxFontSize
 }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const titleRef = useRef<HTMLHeadingElement | null>(null);
@@ -89,6 +91,9 @@ const TextPressure: React.FC<TextPressureProps> = ({
 
     let newFontSize = containerW / (chars.length / 2);
     newFontSize = Math.max(newFontSize, minFontSize);
+    if (maxFontSize) {
+      newFontSize = Math.min(newFontSize, maxFontSize);
+    }
 
     setFontSize(newFontSize);
     setScaleY(1);
