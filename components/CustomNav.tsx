@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import GlassSurface from './GlassSurface';
 
 interface NavItem {
   label: string;
@@ -16,6 +17,7 @@ const CustomNav: React.FC<CustomNavProps> = ({ items }) => {
   const [scrolled, setScrolled] = useState(false);
   const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
   const navItemsRef = React.useRef<{ [key: string]: HTMLButtonElement | null }>({});
+  const navListRef = React.useRef<HTMLUListElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,16 +30,13 @@ const CustomNav: React.FC<CustomNavProps> = ({ items }) => {
 
   useEffect(() => {
     const activeButton = navItemsRef.current[activeSection];
-    if (activeButton) {
-      const parent = activeButton.parentElement?.parentElement;
-      if (parent) {
-        const parentRect = parent.getBoundingClientRect();
-        const buttonRect = activeButton.getBoundingClientRect();
-        setIndicatorStyle({
-          left: buttonRect.left - parentRect.left,
-          width: buttonRect.width,
-        });
-      }
+    if (activeButton && navListRef.current) {
+      const parentRect = navListRef.current.getBoundingClientRect();
+      const buttonRect = activeButton.getBoundingClientRect();
+      setIndicatorStyle({
+        left: buttonRect.left - parentRect.left,
+        width: buttonRect.width,
+      });
     }
   }, [activeSection]);
 
@@ -57,27 +56,22 @@ const CustomNav: React.FC<CustomNavProps> = ({ items }) => {
     >
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-center">
-          {/* Navigation Items with animated glow */}
-          <div className="relative">
-            {/* Animated gradient glow */}
-            <div 
-              className="absolute -inset-1 rounded-full opacity-40 blur-lg"
-              style={{
-                background: 'linear-gradient(45deg, #5227FF, #FF9FFC, #B19EEF, #5227FF)',
-                backgroundSize: '300% 300%',
-                animation: 'gradient-shift 8s ease infinite'
-              }}
-            />
-            
-            <ul className="relative flex items-center gap-1 bg-white/60 backdrop-blur-xl rounded-full px-2 py-2 border border-white/50">
+          {/* Navigation Items with Glass Surface */}
+          <GlassSurface
+            width="auto"
+            height="auto"
+            borderRadius={30}
+            className="hover:scale-105 transition-transform duration-300"
+          >
+            <ul ref={navListRef} className="relative flex items-center gap-1 px-2 py-1">
               {/* Animated indicator with glow effect */}
               <div
                 className="absolute rounded-full transition-all duration-500 ease-out"
                 style={{
                   left: `${indicatorStyle.left}px`,
                   width: `${indicatorStyle.width}px`,
-                  height: 'calc(100% - 16px)',
-                  top: '8px',
+                  height: 'calc(100% - 8px)',
+                  top: '4px',
                   zIndex: 0,
                   background: 'linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(30,30,30,0.9) 50%, rgba(0,0,0,0.95) 100%)',
                   boxShadow: `
@@ -99,7 +93,7 @@ const CustomNav: React.FC<CustomNavProps> = ({ items }) => {
                   }}
                   onClick={() => handleClick(item.href)}
                   className={`
-                    px-6 py-2 rounded-full text-sm font-medium transition-all duration-300
+                    px-6 py-1.5 rounded-full text-sm font-medium transition-all duration-300
                     ${
                       activeSection === item.href
                         ? 'text-white scale-105'
@@ -113,20 +107,11 @@ const CustomNav: React.FC<CustomNavProps> = ({ items }) => {
               </li>
             ))}
             </ul>
-          </div>
+          </GlassSurface>
         </div>
       </div>
       
       <style jsx>{`
-        @keyframes gradient-shift {
-          0%, 100% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-        }
-        
         @keyframes pulse-glow {
           0%, 100% {
             box-shadow: 
