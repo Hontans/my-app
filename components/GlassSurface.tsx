@@ -93,6 +93,11 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
   const gaussianBlurRef = useRef<SVGFEGaussianBlurElement>(null);
 
   const isDarkMode = useDarkMode();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const generateDisplacementMap = () => {
     const rect = containerRef.current?.getBoundingClientRect();
@@ -112,7 +117,6 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
             <stop offset="100%" stop-color="blue"/>
           </linearGradient>
         </defs>
-        <rect x="0" y="0" width="${actualWidth}" height="${actualHeight}" fill="black"></rect>
         <rect x="0" y="0" width="${actualWidth}" height="${actualHeight}" rx="${borderRadius}" fill="url(#${redGradId})" />
         <rect x="0" y="0" width="${actualWidth}" height="${actualHeight}" rx="${borderRadius}" fill="url(#${blueGradId})" style="mix-blend-mode: ${mixBlendMode}" />
         <rect x="${edgeSize}" y="${edgeSize}" width="${actualWidth - edgeSize * 2}" height="${actualHeight - edgeSize * 2}" rx="${borderRadius}" fill="hsl(0 0% ${brightness}% / ${opacity})" style="filter:blur(${blur}px)" />
@@ -192,6 +196,8 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
   }, [width, height]);
 
   const supportsSVGFilters = () => {
+    if (typeof window === 'undefined' || typeof document === 'undefined') return false;
+    
     const isWebkit = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
     const isFirefox = /Firefox/.test(navigator.userAgent);
 
@@ -215,9 +221,17 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
       width: typeof width === 'number' ? `${width}px` : width,
       height: typeof height === 'number' ? `${height}px` : height,
       borderRadius: `${borderRadius}px`,
+      background: 'rgba(255, 255, 255, 0.25)',
+      backdropFilter: 'blur(12px) saturate(1.8)',
+      WebkitBackdropFilter: 'blur(12px) saturate(1.8)',
+      border: '1px solid rgba(255, 255, 255, 0.3)',
       '--glass-frost': backgroundOpacity,
       '--glass-saturation': saturation
     } as React.CSSProperties;
+
+    if (!isClient) {
+      return baseStyles;
+    }
 
     const svgSupported = supportsSVGFilters();
     const backdropFilterSupported = supportsBackdropFilter();
