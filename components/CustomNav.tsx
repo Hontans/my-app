@@ -74,14 +74,7 @@ const CustomNav: React.FC<CustomNavProps> = ({ items }) => {
                   top: '4px',
                   zIndex: 0,
                   background: 'linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(30,30,30,0.9) 50%, rgba(0,0,0,0.95) 100%)',
-                  boxShadow: `
-                    0 0 20px rgba(0, 0, 0, 0.3),
-                    0 0 40px rgba(0, 0, 0, 0.2),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.1),
-                    inset 0 -1px 0 rgba(0, 0, 0, 0.5)
-                  `,
                   transform: 'scale(1)',
-                  animation: 'pulse-glow 2s ease-in-out infinite',
                 }}
               />
               
@@ -110,28 +103,6 @@ const CustomNav: React.FC<CustomNavProps> = ({ items }) => {
           </GlassSurface>
         </div>
       </div>
-      
-      <style jsx>{`
-        @keyframes pulse-glow {
-          0%, 100% {
-            box-shadow: 
-              0 0 20px rgba(0, 0, 0, 0.3),
-              0 0 40px rgba(0, 0, 0, 0.2),
-              inset 0 1px 0 rgba(255, 255, 255, 0.1),
-              inset 0 -1px 0 rgba(0, 0, 0, 0.5);
-            transform: scale(1);
-          }
-          50% {
-            box-shadow: 
-              0 0 30px rgba(0, 0, 0, 0.4),
-              0 0 60px rgba(0, 0, 0, 0.3),
-              0 0 80px rgba(0, 0, 0, 0.1),
-              inset 0 1px 0 rgba(255, 255, 255, 0.15),
-              inset 0 -1px 0 rgba(0, 0, 0, 0.6);
-            transform: scale(1.02);
-          }
-        }
-      `}</style>
     </nav>
   );
 };
