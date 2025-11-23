@@ -58,42 +58,15 @@ const CustomNav: React.FC<CustomNavProps> = ({ items }) => {
                 <button
                   onClick={() => handleClick(item.href)}
                   className={`
-                    relative px-6 py-2 rounded-full text-sm font-medium
-                    transition-all duration-300 ease-out
-                    overflow-hidden group
+                    px-6 py-2 rounded-full text-sm font-medium
                     ${
                       activeSection === item.href
-                        ? 'text-white'
-                        : 'text-black hover:text-white'
+                        ? 'text-white bg-transparent'
+                        : 'text-black'
                     }
                   `}
                 >
-                  {/* Background effect */}
-                  <span
-                    className={`
-                      absolute inset-0 rounded-full
-                      ${
-                        activeSection === item.href
-                          ? 'bg-black opacity-100 scale-100'
-                          : 'bg-[#000] opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out'
-                      }
-                    `}
-                  />
-                  
-                  {/* Glow effect on hover */}
-                  <span
-                    className={`
-                      absolute inset-0 rounded-full blur-xl bg-[#000]
-                      ${
-                        activeSection === item.href
-                          ? 'opacity-0'
-                          : 'opacity-0 group-hover:opacity-50 transition-opacity duration-300'
-                      }
-                    `}
-                  />
-
-                  {/* Text */}
-                  <span className="relative z-10">{item.label}</span>
+                  {item.label}
                 </button>
               </li>
             ))}
