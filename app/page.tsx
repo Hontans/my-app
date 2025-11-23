@@ -87,21 +87,44 @@ export default function Home() {
             </div>
 
             {/* Buttons */}
-            <div className="flex gap-6 justify-center items-center">
-              <a
-                href="#contact"
-                className="px-8 py-4 bg-white/20 backdrop-blur-md text-black rounded-full font-semibold text-lg hover:bg-white/30 transition-all duration-300 border-2 border-black/30 hover:border-black/50"
-              >
-                Me contacter
-              </a>
-              <a
-                href="/CV_SH.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-8 py-4 bg-white text-black rounded-full font-semibold text-lg hover:bg-gray-100 transition-all duration-300"
-              >
-                CV
-              </a>
+            <div className="flex gap-6 justify-center items-center mb-[60px] opacity-0 translate-y-[50px] animate-[fadeInUp_1s_ease-out_1.1s_forwards]">
+              {/* Me contacter button with glow */}
+              <div className="relative">
+                <div 
+                  className="absolute -inset-1 rounded-full opacity-40 blur-lg"
+                  style={{
+                    background: 'linear-gradient(45deg, #5227FF, #FF9FFC, #B19EEF, #5227FF)',
+                    backgroundSize: '300% 300%',
+                    animation: 'gradient-shift 8s ease infinite'
+                  }}
+                />
+                <a
+                  href="#"
+                  id="contact-btn"
+                  className="relative inline-flex justify-center items-center min-w-[160px] h-[50px] px-7 py-3 bg-white/20 backdrop-blur-xl text-black rounded-full font-semibold text-base hover:bg-white/40 hover:scale-105 transition-all duration-500"
+                >
+                  Me contacter
+                </a>
+              </div>
+
+              {/* CV button with glow */}
+              <div className="relative">
+                <div 
+                  className="absolute -inset-1 rounded-full opacity-40 blur-lg"
+                  style={{
+                    background: 'linear-gradient(45deg, #5227FF, #FF9FFC, #B19EEF, #5227FF)',
+                    backgroundSize: '300% 300%',
+                    animation: 'gradient-shift 8s ease infinite'
+                  }}
+                />
+                <a
+                  href="/CV_SH.pdf"
+                  target="_blank"
+                  className="relative inline-flex justify-center items-center min-w-[160px] h-[50px] px-7 py-3 bg-white/20 backdrop-blur-xl text-black rounded-full font-semibold text-base hover:bg-white/40 hover:scale-105 transition-all duration-500"
+                >
+                  CV
+                </a>
+              </div>
             </div>
 
             {/* Social Links */}
@@ -143,6 +166,29 @@ export default function Home() {
           </div>
         </main>
       </div>
+
+      {/* Keyframes for animations */}
+      <style jsx>{`
+        @keyframes gradient-shift {
+          0%, 100% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+        }
+        
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </>
   );
 }
