@@ -1013,6 +1013,9 @@ export default function LiquidEther({
       private _loop = this.loop.bind(this);
       private _resize = this.resize.bind(this);
       private _onVisibility?: () => void;
+      private _lastFrameTime = 0;
+      private _targetFps = 30;
+      private _frameInterval = 1000 / 30;
       constructor(props: any) {
         this.props = props;
         Common.init(props.$wrapper);
@@ -1058,7 +1061,14 @@ export default function LiquidEther({
       }
       loop() {
         if (!this.running) return;
-        this.render();
+        const now = performance.now();
+        const elapsed = now - this._lastFrameTime;
+        
+        if (elapsed >= this._frameInterval) {
+          this._lastFrameTime = now - (elapsed % this._frameInterval);
+          this.render();
+        }
+        
         rafRef.current = requestAnimationFrame(this._loop);
       }
       start() {
