@@ -6,6 +6,16 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  // Optimisations de performance
+  reactStrictMode: true,
+  poweredByHeader: false,
+  compress: true,
+  
+  // Optimisation du build
+  swcMinify: true,
+  
+  // Configuration des modules externes pour réduire la taille du bundle
+  transpilePackages: ['three'],
 };
 
 export default nextConfig;

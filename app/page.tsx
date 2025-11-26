@@ -1,10 +1,24 @@
 'use client';
 
-import LiquidEther from "@/components/LiquidEther";
+import dynamic from 'next/dynamic';
 import CustomNav from "@/components/CustomNav";
-import TextPressure from "@/components/TextPressure";
-import TextType from "@/components/TextType";
 import GlassSurface from "@/components/GlassSurface";
+
+// Lazy load des composants lourds avec animations
+const LiquidEther = dynamic(() => import("@/components/LiquidEther"), {
+  ssr: false,
+  loading: () => <div className="w-full h-full bg-gradient-to-br from-purple-100 to-pink-100" />
+});
+
+const TextPressure = dynamic(() => import("@/components/TextPressure"), {
+  ssr: false,
+  loading: () => <div className="h-20 flex items-center justify-center"><span className="text-4xl font-bold">SYLVAIN HONTANS</span></div>
+});
+
+const TextType = dynamic(() => import("@/components/TextType"), {
+  ssr: false,
+  loading: () => <h2 className="text-4xl md:text-5xl font-medium text-black">Parcours Professionnel</h2>
+});
 
 export default function Home() {
   return (
@@ -13,20 +27,20 @@ export default function Home() {
       <div className="fixed inset-0 w-full h-screen z-0">
         <LiquidEther
           colors={['#5227FF', '#FF9FFC', '#B19EEF']}
-          mouseForce={20}
-          cursorSize={100}
+          mouseForce={15}
+          cursorSize={80}
           isViscous={false}
-          viscous={30}
-          iterationsViscous={32}
-          iterationsPoisson={32}
-          resolution={0.5}
+          viscous={20}
+          iterationsViscous={16}
+          iterationsPoisson={16}
+          resolution={0.4}
           isBounce={false}
           autoDemo={true}
-          autoSpeed={0.5}
-          autoIntensity={2.2}
-          takeoverDuration={0.25}
-          autoResumeDelay={3000}
-          autoRampDuration={0.6}
+          autoSpeed={0.4}
+          autoIntensity={1.8}
+          takeoverDuration={0.2}
+          autoResumeDelay={2500}
+          autoRampDuration={0.5}
         />
       </div>
       
